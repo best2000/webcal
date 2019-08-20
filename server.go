@@ -20,12 +20,7 @@ func main() {
 		
 	}).Methods("GET")
 
-	r.HandleFunc("/reg", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("REQUEST:", r.Method, r.URL, r.Body)
-		fmt.Fprint(w, "<pre>16.05.43</pre>")
-	}).Methods("GET")
-
-	r.HandleFunc("/bol", func(w http.ResponseWriter, r *http.Request) {
+	r.HandleFunc("/pic", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("REQUEST:", r.Method, r.URL,)
 		buf := new(bytes.Buffer)
 		buf.ReadFrom(r.Body)
@@ -38,8 +33,9 @@ func main() {
 		default:
 			log.Println("INVALID PASS!",PassCode)
 		}
+		http.ServeFile(w,r, "pub/square-gopher.jpg")
 		
-	}).Methods("POST")
+	}).Methods("GET")
 	
 	r.PathPrefix("/publicfs/").Handler(http.StripPrefix("/publicfs/", http.FileServer(http.Dir("pub"))))
 
