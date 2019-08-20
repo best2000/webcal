@@ -1,0 +1,132 @@
+body {
+    font-family: monospace;
+    margin: 0;
+}
+p {
+    display: inline-block;
+    line-height: 0px;
+    margin: 5px;
+    padding: 5px;
+}
+#title {
+    position: relative;
+    width: 600px;
+    margin: 0 auto; 
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+}
+#title_name {
+    background-color: #f7f7f7;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+#mode {
+    position: relative;
+    width: 600px;
+    margin: 0 auto; 
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.a_act{
+    float:left;
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none
+}
+.a_deact {
+    float:left;
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none
+}
+.a_act:link, .a_act:visited {
+    color: black;
+    background-color: #f7f7f7;
+}
+
+.a_deact:link, .a_deact:visited {
+    color: black;
+    background-color: rgb(175, 175, 175);
+}
+.a_deact:hover, .a_deact:active {
+    color: black;
+    background-color: #f7f7f7;
+}
+.clear {
+    clear:both;
+}
+
+#midsec {
+    position: relative;
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    width: 600px;
+    height: auto;
+    margin: 0 auto; 
+    padding: 10px;
+    margin-top: 10px
+}
+#midsec_main {  
+    background-color:#f7f7f7;
+    width: auto;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    padding: 5px;
+    height: auto;
+}
+#midsec_main input {
+    border: 1px solid rgb(175, 175, 175);
+    background-color: white; 
+    color:black;
+    width: auto;
+}
+#midsec_main textarea {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(175, 175, 175);
+    width: 300px; 
+    height: 50px;
+    resize: none; 
+}
+#midsec_sup {
+    background-color:#f7f7f7;
+    width: auto;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    padding: 5px;
+    height: 183.5px;
+    margin-top: 10px; 
+}
+#midsec_sup input{
+    border: 1px solid rgb(175, 175, 175);
+    background-color: white; 
+    color:black;
+    width: 50px;
+}
+

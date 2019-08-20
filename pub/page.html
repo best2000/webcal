@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="utf-8">
+    <title>Calculatar</title>
+    <link rel="stylesheet" type="text/css" href="/publicfs/style.css"/>
+</head>
+<body style="height: 1000px" onkeypress="keyPress()" onkeyup="keyUp()">
+    <textarea id="display"   style="background-color: black; color: white; font-size: 50px; resize:none;" disabled="disabled" onmouseover="mouseOver1()" onmouseout="mouseOut1()"></textarea>
+    <textarea id="display2"  style="background-color: black; color: white; font-size: 50px; resize:none;" disabled="disabled"></textarea>
+    <textarea id="display3"  style="background-color: black; color: white; font-size: 50px; resize:none;" disabled="disabled"></textarea>
+    <textarea id="display4"  style="background-color: black; color: white; font-size: 50px; resize:none;" disabled="disabled"></textarea>
+    <textarea id="display5"  style="background-color: black; color: white; font-size: 50px; resize:none;" disabled="disabled"></textarea>
+    <textarea id="display6"  style="background-color: rgb(0, 0, 0); color: white; font-size: 50px; resize:none;" disabled="disabled"></textarea><br>
+    <button id="button" style="font-size: 100px">BUTT</button>
+    
+    
+    
+    
+    <script>
+        document.querySelector("body").addEventListener('click',(e) =>{
+            document.getElementById("display6").textContent = e.target
+        }) 
+        window.addEventListener('load', (e) => document.getElementById("display3").textContent = "page loaded")
+        document.querySelector("body").addEventListener('mousemove',(e) => {
+            document.getElementById("display").textContent = "x: " + e.x
+            document.getElementById("display2").textContent = "y: " + e.y
+            document.getElementById("display3").style.backgroundColor = "rgb("+e.y+","+e.x+","+255+")"
+        })
+        document.querySelector('body').addEventListener('keydown',(e) =>{
+            console.log('keydown')
+            document.getElementById("display5").textContent = "key: " + e.key
+        })
+
+
+
+        function keyPress() {
+            console.log("keyPress")
+            document.getElementById("display4").textContent = "stat: keyPress"
+        }
+        function keyUp(){
+            console.log("keyUp")
+            document.getElementById("display4").textContent = "stat: keyUp"
+        }
+        function mouseOver1() {
+            let element = document.getElementById("display")
+            element.textContent = "mouseOver1"
+            console.log("mouseOver1")
+            element.style.backgroundColor = "white"
+            element.style.color = "black"
+        }
+        function mouseOut1() {
+            let element = document.getElementById("display")
+            element.textContent = "mouseOut"
+            console.log("mouseOut1")
+            element.style.backgroundColor = "black"
+            element.style.color = "white"
+        }
+    </script>
+</body>
+</html>

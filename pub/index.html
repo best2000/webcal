@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="utf-8">
+    <title>Calculater Manual</title>
+    <link rel="stylesheet" type="text/css" href="/publicfs/manual_style.css"/>
+    <script type="text/javascript" src="/publicfs/var_tokenizer.js"></script>
+</head>
+<body>
+    <div id="title">
+        <a href="/publicfs/page.html"><div id="title_name">Calculater</div></a>
+    </div>
+    <div id="mode">
+        <a class=a_deact href="/publicfs/reg.html">
+            <div>
+                Regular
+            </div>
+        </a>
+        <a class=a_deact href="/publicfs/bol.html">
+            <div>
+                Boolean
+            </div>
+        </a>
+        <a class=a_deact href="/publicfs/xxx.html">
+                <div>
+                    ??? 
+                </div>
+        </a>
+        <a class=a_act href="/publicfs/index.html">
+                <div>
+                    Manual 
+                </div>
+        </a>
+        <div class="clear"></div>
+        
+    </div>
+    <div id="midsec">
+        <div id="midsec_main">
+<pre>
+<span class="htext">Quick Instruction</span>
+<strong>INPUT:</strong> Expression.
+<strong>OUTPUT:</strong> Calculated Result.
+there are 2 mode you can choose Regular and Boolean
+
+<span class="htext">The Rules</span>
+1.operators has to be present.
+<textarea class="ex_textarea" readonly>Incorrect: 2(3+2x)&#013;&#010;Correct: 2*(3+2*x)&#013;&#010;Correct: 2*1+2-8-8/2</textarea>
+2.no unbanlance parentheses but...
+meaningless or double parentheses is ok.
+<textarea class="ex_textarea" readonly>Incorrect: ((3))+((4/2)&#013;&#010;Correct: ((3))+(4/2)&#013;&#010;Correct: 3+(4/2)</textarea>
+3.negative number is ok.
+<textarea class="ex_textarea" readonly>Correct: 2-(-3)&#013;&#010;Correct: -5*(3+x)&#013;&#010;Correct: 1+-2--8-8/2</textarea>
+4.just don't write weird expressions. 
+<textarea class="ex_textarea" readonly>Incorrect: d+++2-+-++51f&#013;&#010;Incorrect: a+56a4a+d---+d&#013;&#010;Incorrect: 3+xx(4d/2)</textarea>
+
+<span class="htext">Varriable Value Handling</span>
+you have to type in a correct syntax as shown below.
+<textarea class="ex_textarea2" readonly>var1_name=var1_value; var2_name = var2_value;  </textarea>
+*space after first varriable/value letter and last letter 
+ also considered as var_name
+*always type ";" after finish
+
+<span class="htext">Try it!</span>
+just type in it is <strong>auto execute</strong>.
+<strong>varriables value input ↴</strong>
+<textarea id="input_textarea" value="" onchange="varTest()" placeholder="x=1;"></textarea>
+<strong>output as object ↴</strong>
+<textarea id="output_textarea" class="ex_textarea" value="" placeholder="{'x':'1'}"></textarea>
+</pre>
+        </div>
+    </div>
+</body>
+</html>

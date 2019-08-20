@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="utf-8">
+    <title>Regular Calculater</title>
+    <link rel="stylesheet" type="text/css" href="/publicfs/style.css"/>
+    <script type="text/javascript" src="/publicfs/reg.js"></script>
+    <script type="text/javascript" src="/publicfs/var_tokenizer.js"></script>
+</head>
+<body>
+    <div id="title">
+        <div id="title_name">Calculater</div>
+    </div>
+    <div id="mode">
+        <a class=a_act href="reg.html">
+            <div>
+                Regular
+            </div>
+        </a>
+        <a class=a_deact href="bol.html">
+            <div>
+                Boolean
+            </div>
+        </a>
+        <a class=a_deact href="xxx.html">
+                <div>
+                    ??? 
+                </div>
+        </a>
+        <a class=a_deact href="index.html">
+                <div>
+                    Manual 
+                </div>
+        </a>
+        <div class="clear"></div>
+        
+    </div>
+    <div id="midsec">
+        <div id="midsec_main">
+            <p><strong>Exp →</strong>
+                <input type="text" id="input1" value="" placeholder="1+2*(x+y)-z">
+                <input type="submit" value="CAL" onclick="autocal()">
+            </p><br>
+            <p><strong>Varriable Value</strong></p><br>
+            <textarea id="var_textarea" onchange="autoVarToken()" value="" placeholder="x=1; y=2; z=3;"></textarea>
+            
+        </div>
+        <div id="midsec_sup">
+            <p><strong>Result →</strong>
+                <input type="submit" id="dis1" value="" disabled="disabled">
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

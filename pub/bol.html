@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="utf-8">
+    <title>Boolean Calculater</title>
+    <link rel="stylesheet" type="text/css" href="/publicfs/style.css"/>
+</head>
+<body>
+    <script type="text/javascript" src="/publicfs/bol.js"></script>
+    <div id="title">
+        <div id="title_name">Calculater</div>
+    </div>
+    <div id="mode">
+        <a class=a_deact href="/publicfs/reg.html">
+            <div>
+                Regular
+            </div>
+        </a>
+        <a class=a_act href="/publicfs/bol.html">
+            <div>
+                Boolean
+            </div>
+        </a>
+        <a class=a_deact href="/publicfs/xxx.html">
+                <div>
+                    ??? 
+                </div>
+        </a>
+        <a class=a_deact href="/publicfs/index.html">
+                <div>
+                    Manual 
+                </div>
+        </a>
+        <div class="clear"></div>
+        
+    </div>
+    <div id="midsec">
+            <div id="midsec_main">
+                <p><strong>Exp →</strong>
+                    <input type="text" id="input1" value="" placeholder="!(0)+ x">
+                    <input type="submit" value="CAL" onclick="autocal()">
+                </p><br>
+                <p><strong>Varriable Value</strong></p><br>
+                <textarea id="var_textarea" onchange="autoVarToken()" value="" placeholder="x=1;"></textarea>
+                
+            </div>
+            <div id="midsec_sup">
+                <p><strong>Result →</strong>
+                    <input type="submit" id="dis1" value="" disabled="disabled">
+                </p>
+            </div>
+    </div>
+
+</body>
+</html>

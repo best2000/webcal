@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>under construction!</title></head>
+<body>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("pa").id;
+  var y = document.getElementById("pa").textContent; 
+  var z = document.getElementById("pa").style;
+  var v = document.getElementById("pa").innerHTML;
+  var b = document.getElementById("pa").innerText;
+  document.getElementById("dis").textContent = typeof(x) + "|" + x + "|" + y + "|" + z.color + "|" + z[1];
+  document.getElementById("dis2").style.color = "blue";
+  document.getElementById("dis3").innerText = y + "  ||  " + b;
+}
+</script>
+
+<p style="font-size:50px;">UNDER CONSTRUCTION!!!!!</p>
+<p id="pa" style="color: crimson; font-size: 50px">012 3    45<span style="background: pink">67</span>89</p>
+
+<button onclick="myFunction()" id="myBtn">BUTT</button>
+<p id="dis" style="font-size: 35px"></p>
+<p id="dis2"style="font-size: 35px; color:green">&nbsp;&nbsp;xx&nbsp;&nbsp;yyy&nbsp;&nbsp;yxz&nbsp;&nbsp;&nbsp;&nbsp;zz</p>
+<pre id="dis3"style="font-size: 35px; font-weight:bold"></pre>
+<a href="/publicfs/reg.html">
+    <button >BACK</button>
+</a>
+
+</body>
+</html>
