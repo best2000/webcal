@@ -488,17 +488,4 @@ function showTree(root) {
     showTreeRec(root)
     return reLis
 }
-function autocal() {
-    var input = document.getElementById("input1");
-    var tokenLis = tokenizer(input.value);
-    var root = autoTree(tokenLis);
-    var re = evalExpTree(root);
-    re = re;
-    console.log(showTree(root));
-    console.log("---------------------------");
-    document.getElementById("dis1").value = re;
-}
 
-let str = "(1)"
-let root = autoTree(tokenizer(str))
-console.log(showTree(root))

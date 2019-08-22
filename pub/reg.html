@@ -2,9 +2,7 @@
 <html lang="en">
 <head> <meta charset="utf-8">
     <title>Regular Calculater</title>
-    <link rel="stylesheet" type="text/css" href="/publicfs/style.css"/>
-    <script type="text/javascript" src="/publicfs/reg.js"></script>
-    <script type="text/javascript" src="/publicfs/var_tokenizer.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
     <div id="title">
@@ -31,25 +29,94 @@
                     Manual 
                 </div>
         </a>
-        <div class="clear"></div>
-        
     </div>
     <div id="midsec">
         <div id="midsec_main">
-            <p><strong>Exp →</strong>
-                <input type="text" id="input1" value="" placeholder="1+2*(x+y)-z">
-                <input type="submit" value="CAL" onclick="autocal()">
-            </p><br>
-            <p><strong>Varriable Value</strong></p><br>
-            <textarea id="var_textarea" onchange="autoVarToken()" value="" placeholder="x=1; y=2; z=3;"></textarea>
-            
+            <strong>Exp →</strong>
+            <input type="text" id="input1" value="" placeholder="1+1">
+            <input type="submit" id="calbut" class="but" value="CAL" onclick="autocal()">
+            <strong>Result →</strong>
+            <input type="text" id="resultdis" value="" disabled="disabled">
         </div>
         <div id="midsec_sup">
-            <p><strong>Result →</strong>
-                <input type="submit" id="dis1" value="" disabled="disabled">
-            </p>
+            <div id="butzone">
+                <input type="submit" id="but7" class="but" value="7">
+                <input type="submit" id="but8" class="but" value="8">
+                <input type="submit" id="but9" class="but" value="9">
+                <input type="submit" id="but+" class="but" value="+">
+                <input type="submit" id="but4" class="but" value="4">
+                <input type="submit" id="but5" class="but" value="5">
+                <input type="submit" id="but6" class="but" value="6">
+                <input type="submit" id="but-" class="but" value="-">
+                <input type="submit" id="but1" class="but" value="1">
+                <input type="submit" id="but2" class="but" value="2">
+                <input type="submit" id="but3" class="but" value="3">
+                <input type="submit" id="but*" class="but" value="*">
+                <input type="submit" id="but0" class="but" value="0">
+                <input type="submit" id="but." class="but" value=".">
+                <input type="submit" id="but=" class="but" value="=">
+                <input type="submit" id="but/" class="but" value="/">
+            </div>
         </div>
     </div>
-
 </body>
+<script type="text/javascript" src="reg.js"></script>
+<script>
+    function autocal() {
+    var input = document.getElementById("input1");
+    var tokenLis = tokenizer(input.value);
+    var root = autoTree(tokenLis);
+    var re = evalExpTree(root);
+    re = re;
+    console.log(showTree(root));
+    console.log("---------------------------");
+    document.getElementById("resultdis").value = re;
+    }
+
+    document.getElementById("but1").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "1"
+    }) 
+    document.getElementById("but2").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "2"
+    }) 
+    document.getElementById("but3").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "3"
+    }) 
+    document.getElementById("but4").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "4"
+    }) 
+    document.getElementById("but5").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "5"
+    }) 
+    document.getElementById("but6").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "6"
+    }) 
+    document.getElementById("but7").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "7"
+    }) 
+    document.getElementById("but8").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "8"
+    }) 
+    document.getElementById("but9").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "9"
+    }) 
+    document.getElementById("but0").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "0"
+    })
+    document.getElementById("but+").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "+"
+    })
+    document.getElementById("but-").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "-"
+    }) 
+    document.getElementById("but*").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "*"
+    }) 
+    document.getElementById("but/").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "/"
+    })  
+    document.getElementById("but=").addEventListener('click',(e) =>{
+        autocal()
+    }) 
+</script>
 </html>
