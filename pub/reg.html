@@ -19,7 +19,7 @@
                 Boolean
             </div>
         </a>
-        <a class=a_deact href="xxx.html">
+        <a class=a_deact href="page.html">
                 <div>
                     ??? 
                 </div>
@@ -34,12 +34,15 @@
         <div id="midsec_main">
             <strong>Exp →</strong>
             <input type="text" id="input1" value="" placeholder="1+1">
-            <input type="submit" id="calbut" class="but" value="CAL" onclick="autocal()">
+            <input type="submit" id="calbut" class="but" value="CAL" onclick="autocal()"><br>
             <strong>Result →</strong>
             <input type="text" id="resultdis" value="" disabled="disabled">
         </div>
         <div id="midsec_sup">
-            <div id="butzone">
+                <input type="submit" id="but(" class="but" value="(">
+                <input type="submit" id="but)" class="but" value=")">
+                <input type="submit" id="butdel" class="but" value="←">
+                <input type="submit" id="butcls" class="but" value="C">
                 <input type="submit" id="but7" class="but" value="7">
                 <input type="submit" id="but8" class="but" value="8">
                 <input type="submit" id="but9" class="but" value="9">
@@ -56,7 +59,6 @@
                 <input type="submit" id="but." class="but" value=".">
                 <input type="submit" id="but=" class="but" value="=">
                 <input type="submit" id="but/" class="but" value="/">
-            </div>
         </div>
     </div>
 </body>
@@ -72,7 +74,18 @@
     console.log("---------------------------");
     document.getElementById("resultdis").value = re;
     }
-
+    document.getElementById("but(").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += "("
+    }) 
+    document.getElementById("but)").addEventListener('click',(e) =>{
+        document.getElementById("input1").value += ")"
+    }) 
+    document.getElementById("butdel").addEventListener('click',(e) =>{
+        document.getElementById("input1").value[0] += " "
+    }) 
+    document.getElementById("butcls").addEventListener('click',(e) =>{
+        document.getElementById("input1").value = ""
+    }) 
     document.getElementById("but1").addEventListener('click',(e) =>{
         document.getElementById("input1").value += "1"
     }) 

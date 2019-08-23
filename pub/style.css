@@ -87,7 +87,8 @@ p {
     height: auto;
     margin: 0 auto; 
     padding: 10px;
-    margin-top: 10px
+    margin-top: 10px;
+    display: flex;
 }
 #midsec_main {  
     background-color:#f7f7f7;
@@ -104,22 +105,12 @@ p {
 }
 #midsec_sup {
     background-color:#f7f7f7;
-    width: auto;
+    width: 144px;
     border: 1px solid rgb(175, 175, 175);
     border-radius: 6px;
     padding: 5px;
     height: auto;
-    margin-top: 10px; 
-}
-#midsec_sup input {
-    background-color: white; 
-    width: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-#butzone {
-    margin: 0 auto;
-    width: 133px;
+    margin-left: 10px;
 }
 #resultdis {
     border: 1px solid rgb(175, 175, 175);
@@ -129,5 +120,35 @@ p {
     width: 100px;
 }
 .but {
+    background-color: white; 
+    width: 29px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
     font-weight: bold;
+    text-align: center;
+    height: 27px;
+}
+#calbut {
+    width: auto;
+}
+#botsec {
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    width: 600px;
+    height: auto;
+    margin: 0 auto; 
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+}
+#inbotsec {
+    background-color:#f7f7f7;
+    width: auto;
+    height: auto;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    padding: 5px;
+}
+table , th , td{
 }
