@@ -9,12 +9,12 @@
         <div id="title_name">Calculater</div>
     </div>
     <div id="mode">
-        <a class=a_deact href="reg.html">
+        <a class=a_act href="reg.html">
             <div>
                 Regular
             </div>
         </a>
-        <a class=a_act href="bol.html">
+        <a class=a_deact href="bol.html">
             <div>
                 Boolean
             </div>
@@ -22,11 +22,6 @@
         <a class=a_deact href="page.html">
                 <div>
                     ??? 
-                </div>
-        </a>
-        <a class=a_deact href="index.html">
-                <div>
-                    Manual 
                 </div>
         </a>
     </div>
@@ -39,56 +34,30 @@
             <input type="text" id="resultdis" value="" disabled="disabled">
         </div>
         <div id="midsec_sup">
-            <input type="submit" id="but(" class="but" value="(">
-            <input type="submit" id="but)" class="but" value=")">
-            <input type="submit" id="butdel" class="but" value="←">
-            <input type="submit" id="butcls" class="but" value="C">
-            <input type="submit" id="but7" class="but" value="7">
-            <input type="submit" id="but8" class="but" value="8">
-            <input type="submit" id="but9" class="but" value="9">
-            <input type="submit" id="but+" class="but" value="+">
-            <input type="submit" id="but4" class="but" value="4">
-            <input type="submit" id="but5" class="but" value="5">
-            <input type="submit" id="but6" class="but" value="6">
-            <input type="submit" id="but-" class="but" value="-">
-            <input type="submit" id="but1" class="but" value="1">
-            <input type="submit" id="but2" class="but" value="2">
-            <input type="submit" id="but3" class="but" value="3">
-            <input type="submit" id="but*" class="but" value="*">
-            <input type="submit" id="but0" class="but" value="0">
-            <input type="submit" id="but." class="but" value=".">
-            <input type="submit" id="but=" class="but" value="=">
-            <input type="submit" id="but/" class="but" value="/">
-        </div>
-    </div>
-    <div id="botsec">
-        <div id="inbotsec">
-            <table>
-                <tr>
-                    <th>A</th>
-                    <th>B</th> 
-                    <th>Y</th>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>80</td>
-                </tr>
-            </table>
+                <input type="submit" id="but(" class="but" value="(">
+                <input type="submit" id="but)" class="but" value=")">
+                <input type="submit" id="butdel" class="but" value="←">
+                <input type="submit" id="butcls" class="but" value="C">
+                <input type="submit" id="but7" class="but" value="7">
+                <input type="submit" id="but8" class="but" value="8">
+                <input type="submit" id="but9" class="but" value="9">
+                <input type="submit" id="but+" class="but" value="+">
+                <input type="submit" id="but4" class="but" value="4">
+                <input type="submit" id="but5" class="but" value="5">
+                <input type="submit" id="but6" class="but" value="6">
+                <input type="submit" id="but-" class="but" value="-">
+                <input type="submit" id="but1" class="but" value="1">
+                <input type="submit" id="but2" class="but" value="2">
+                <input type="submit" id="but3" class="but" value="3">
+                <input type="submit" id="but*" class="but" value="*">
+                <input type="submit" id="but0" class="but" value="0">
+                <input type="submit" id="but." class="but" value=".">
+                <input type="submit" id="but=" class="but" value="=">
+                <input type="submit" id="but/" class="but" value="/">
         </div>
     </div>
 </body>
-<script type="text/javascript" src="bol.js"></script>
+<script type="text/javascript" src="reg.js"></script>
 <script>
     function autocal() {
     var input = document.getElementById("input1");
@@ -107,7 +76,9 @@
         document.getElementById("input1").value += ")"
     }) 
     document.getElementById("butdel").addEventListener('click',(e) =>{
-        document.getElementById("input1").value[0] += " "
+        let x = document.getElementById("input1").value
+        x = x.slice(0,x.length-1)
+        document.getElementById("input1").value = x
     }) 
     document.getElementById("butcls").addEventListener('click',(e) =>{
         document.getElementById("input1").value = ""
