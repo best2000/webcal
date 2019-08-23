@@ -20,7 +20,7 @@ func main() {
 		
 	}).Methods("GET")
 	
-	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("."))))
+	r.PathPrefix("/serve/").Handler(http.StripPrefix("/serve/", http.FileServer(http.Dir("."))))
 
   	log.Println("LISTENING:80")
 	http.ListenAndServe(":80", r)
