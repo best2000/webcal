@@ -1,0 +1,131 @@
+body {
+    font-family: monospace;
+    margin: 0;
+}
+
+#title {
+    position: relative;
+    width: 600px;
+    margin: 0 auto; 
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+}
+#title_name {
+    background-color: #f7f7f7;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+#mode {
+    position: relative;
+    width: 600px;
+    margin: 0 auto; 
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.a_act{
+    float:left;
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none
+}
+.a_deact {
+    float:left;
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none
+}
+.a_act:link, .a_act:visited {
+    color: black;
+    background-color: #f7f7f7;
+}
+
+.a_deact:link, .a_deact:visited {
+    color: black;
+    background-color: rgb(175, 175, 175);
+}
+.a_deact:hover, .a_deact:active {
+    color: black;
+    background-color: #f7f7f7;
+}
+.clear {
+    clear:both;
+}
+
+#midsec {
+    position: relative;
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    width: 600px;
+    height: auto;
+    margin: 0 auto; 
+    padding: 10px;
+    margin-top: 10px
+}
+#midsec_main{  
+    background-color:#f7f7f7;
+    width: auto;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 6px;
+    padding: 5px;
+    height: auto;
+}
+.ex_textarea {
+    color: black;
+    background-color:#ffffff;
+    border: 1px solid rgb(175, 175, 175);
+    width: 240px;
+    height: 55px;
+    resize: none;
+    font-size: 15px;
+}
+.ex_textarea2 {
+    color: black;
+    background-color:#ffffff;
+    border: 1px solid rgb(175, 175, 175);
+    width: 405px;
+    height: 21px;
+    resize:none;
+    font-size: 15px;
+}
+#input_textarea {
+    color: black;
+    background-color:#ffffff;
+    border: 1px solid rgb(175, 175, 175);
+    width: 240px;
+    height: 55px;
+    resize: none;
+    font-size: 15px;
+}
+.htext {
+    text-decoration: underline; 
+    font-weight: bold;
+}
+pre {
+    font-size: 14px;
+}

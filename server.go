@@ -1,8 +1,8 @@
 package main
 
 import (
-    //"fmt"
-	//"io/ioutil"
+    "fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -16,11 +16,28 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("REQUEST:", r.Method, r.URL, r.Body)
-		http.ServeFile(w, r, "reg.html")
+		http.ServeFile(w, r, "pub/index.html")
+		
+	}).Methods("GET")
+
+	r.HandleFunc("/pic", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("REQUEST:", r.Method, r.URL,)
+		buf := new(bytes.Buffer)
+		buf.ReadFrom(r.Body)
+		fmt.Fprint(w, buf.String())
+		PassCode := r.Header.Get("pass")
+		switch PassCode {
+		case "160543":
+			log.Println("POSTED:",buf)
+			ioutil.WriteFile("text.txt", buf.Bytes(), 755)	
+		default:
+			log.Println("INVALID PASS!",PassCode)
+		}
+		http.ServeFile(w,r, "pub/square-gopher.jpg")
 		
 	}).Methods("GET")
 	
-	r.PathPrefix("/serve/").Handler(http.StripPrefix("/serve/", http.FileServer(http.Dir("."))))
+	r.PathPrefix("/publicfs/").Handler(http.StripPrefix("/publicfs/", http.FileServer(http.Dir("pub"))))
 
   	log.Println("LISTENING:80")
 	http.ListenAndServe(":80", r)

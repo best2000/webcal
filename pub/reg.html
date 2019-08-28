@@ -2,26 +2,31 @@
 <html lang="en">
 <head> <meta charset="utf-8">
     <title>Regular Calculater</title>
-    <link rel="stylesheet" type="text/css" href="/serve/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
     <div id="title">
         <div id="title_name">Calculater</div>
     </div>
     <div id="mode">
-        <a class=a_act href="/serve/reg.html">
+        <a class=a_act href="reg.html">
             <div>
                 Regular
             </div>
         </a>
-        <a class=a_deact href="/serve/bol.html">
+        <a class=a_deact href="bol.html">
             <div>
                 Boolean
             </div>
         </a>
-        <a class=a_deact href="/serve/page.html">
+        <a class=a_deact href="page.html">
                 <div>
                     ??? 
+                </div>
+        </a>
+        <a class=a_deact href="index.html">
+                <div>
+                    Manual 
                 </div>
         </a>
     </div>
@@ -57,7 +62,7 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/serve/reg.js"></script>
+<script type="text/javascript" src="reg.js"></script>
 <script>
     function autocal() {
     var input = document.getElementById("input1");
@@ -76,9 +81,7 @@
         document.getElementById("input1").value += ")"
     }) 
     document.getElementById("butdel").addEventListener('click',(e) =>{
-        let x = document.getElementById("input1").value
-        x = x.slice(0,x.length-1)
-        document.getElementById("input1").value = x
+        document.getElementById("input1").value[0] += " "
     }) 
     document.getElementById("butcls").addEventListener('click',(e) =>{
         document.getElementById("input1").value = ""
