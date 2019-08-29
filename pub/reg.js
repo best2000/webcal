@@ -46,7 +46,7 @@ function tokenizer(str) {
             this.str = str; // set the input string
         }
         Tokenizer.prototype.next = function () {
-            //console.log(tokens)
+            console.log("hjere", tokens);
             //create Token object name t
             var t = {
                 type: null,
@@ -97,6 +97,25 @@ function tokenizer(str) {
                     return t;
                 }
                 //if it neg number
+                else if (tokens.length == 0 && this.str[i] == "-" && is_digit(this.str[i + 1]) == true) {
+                    var numval = "";
+                    numval = numval + this.str[i];
+                    i = i + 1;
+                    //check if it a >1 digit number
+                    while (true) {
+                        if (is_digit(this.str[i]) == false && this.str[i] != ".") {
+                            break;
+                        }
+                        numval = numval + this.str[i];
+                        i = i + 1;
+                    }
+                    this.str = this.str.slice(i);
+                    t = {
+                        type: TokenType.LITERAL,
+                        value: numval
+                    };
+                    return t;
+                }
                 else if (this.str[i] == "-" && is_digit(this.str[i + 1]) == true && tokens[tokens.length - 1].value != ")" && tokens[tokens.length - 1].type != TokenType.LITERAL) {
                     var numval = "";
                     numval = numval + this.str[i];
@@ -117,7 +136,7 @@ function tokenizer(str) {
                     return t;
                 }
                 //if it operator at first
-                else if (this.str[i] == "+" || this.str[i] == "-" || this.str[i] == "*" || this.str[i] == "/" || this.str[i] == "!") {
+                else if (this.str[i] == "+" || this.str[i] == "-" || this.str[i] == "*" || this.str[i] == "/" || this.str[i] == "%") {
                     t = {
                         type: TokenType.OPERATOR,
                         value: this.str[i]
@@ -176,7 +195,7 @@ function tokenizer(str) {
         }
         tokens.push(t);
     }
-    console.log(tokens)
+    console.log(tokens);
     return tokens;
 }
 function autoTree(tokenLis) {
@@ -264,7 +283,7 @@ function autoTree(tokenLis) {
             }
             //out of paren
             else if (paBalan == 0) {
-                if (tokenLis[i].type == 2 && tokenLis[i].value == "*" || tokenLis[i].value == "/") {
+                if (tokenLis[i].type == 2 && tokenLis[i].value == "*" || tokenLis[i].value == "/" || tokenLis[i].value == "%") {
                     cRootIndexNode = tokenLis[i];
                     cRootIndex = i;
                     return null;
@@ -287,13 +306,13 @@ function autoTree(tokenLis) {
     //cut useless paren
     while (tokenLis[0].value == "(" && tokenLis[tokenLis.length - 1].value == ")") {
         tokenLis = tokenLis.slice(1, -1);
-      }
+    }
     //end of paren cut
     if (tokenLis.length == 1) {
-      return root = new node(tokenLis[0])
+        return root = new node(tokenLis[0]);
     }
     else {
-      rootToken(tokenLis);
+        rootToken(tokenLis);
     }
     console.log("__tokenLis2__");
     console.log(tokenLis2);
@@ -309,10 +328,10 @@ function autoTree(tokenLis) {
     //cut useless
     while (newNodeL[0].value == "(" && newNodeL[newNodeL.length - 1].value == ")") {
         newNodeL = newNodeL.slice(1, -1);
-      }
+    }
     while (newNodeR[0].value == "(" && newNodeR[newNodeR.length - 1].value == ")") {
         newNodeR = newNodeR.slice(1, -1);
-      }
+    }
     //end of paren cut 
     if (newNodeL.length == 1 && newNodeR.length == 1) {
         cNodeL = new node(newNodeL[0]);
@@ -367,6 +386,15 @@ function autoTree(tokenLis) {
         //if it +-*/ then add left/right node
         var newNodeL_1 = tokenLis2.slice(0, cRootIndex);
         var newNodeR_1 = tokenLis2.slice(cRootIndex + 1);
+        console.log("NODE_R:", newNodeR_1);
+        //cut useless
+        while (newNodeL_1[0].value == "(" && newNodeL_1[newNodeL_1.length - 1].value == ")") {
+            newNodeL_1 = newNodeL_1.slice(1, -1);
+        }
+        while (newNodeR_1[0].value == "(" && newNodeR_1[newNodeR_1.length - 1].value == ")") {
+            newNodeR_1 = newNodeR_1.slice(1, -1);
+        }
+        //end of paren cut 
         if (newNodeL_1.length == 1 && newNodeR_1.length == 1) {
             cNodeL = new node(newNodeL_1[0]);
             cNodeR = new node(newNodeR_1[0]);
@@ -432,60 +460,42 @@ function showTree(root) {
 }
 function evalExpTree(root) {
     //if empty tree
-    if (root==null) {
-        return null
+    if (root == null) {
+        return null;
     }
     //if leaf 
     if (root.left == null && root.right == null) {
         //if it varr
         if (root.data.type == 6) {
-            return root.data.reVal
+            return root.data.reVal;
         }
         //if it just number
-        return Number(root.data.value)
+        return Number(root.data.value);
     }
     //eval left-right tree
-    let leftEval = evalExpTree(root.left)
-    let rightEval = evalExpTree(root.right)
+    var leftEval = evalExpTree(root.left);
+    var rightEval = evalExpTree(root.right);
     //check operation to apply
     if (root.data.type == 2) {
         if (root.data.value == "+") {
-            return leftEval + rightEval
+            return leftEval + rightEval;
         }
         else if (root.data.value == "-") {
-            return leftEval - rightEval
+            return leftEval - rightEval;
         }
         else if (root.data.value == "*") {
-            return leftEval * rightEval
+            return leftEval * rightEval;
+        }
+        else if (root.data.value == "/") {
+            return leftEval / rightEval;
         }
         else {
-            return leftEval / rightEval
+            return leftEval % rightEval;
         }
     }
 }
-function repeat(str,im) {
-    let strLis = []
-    for(let i = 1; i <= im; i++) {
-    strLis.push(str)
-    }
-    return strLis.join('') 
-}
-function showTree(root) {
-    let i = 0
-    let reLis = ""
-    reLis="__showTree__\n"
-    function showTreeRec(root) {
-        reLis = reLis + (repeat("  ",i) + root.data.value + "\n")
-        if (root.left != null) {
-            i = i+1
-            showTreeRec(root.left)
-        }
-        if (root.right != null) {
-            showTreeRec(root.right)
-            i = i-1
-        }
-    }
-    showTreeRec(root)
-    return reLis
-}
-
+var a = tokenizer("5*(7/2)");
+var root = autoTree(a);
+console.log("__RESULT__");
+console.log(evalExpTree(root));
+console.log(showTree(root));

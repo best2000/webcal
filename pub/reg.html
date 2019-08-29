@@ -24,11 +24,6 @@
                     ??? 
                 </div>
         </a>
-        <a class=a_deact href="index.html">
-                <div>
-                    Manual 
-                </div>
-        </a>
     </div>
     <div id="midsec">
         <div id="midsec_main">
@@ -37,6 +32,7 @@
             <input type="submit" id="calbut" class="but" value="CAL" onclick="autocal()"><br>
             <strong>Result →</strong>
             <input type="text" id="resultdis" value="" disabled="disabled">
+            <pre id="tree"></pre>
         </div>
         <div id="midsec_sup">
                 <input type="submit" id="but(" class="but" value="(">
@@ -73,6 +69,7 @@
     console.log(showTree(root));
     console.log("---------------------------");
     document.getElementById("resultdis").value = re;
+    document.getElementById("tree").innerHTML = "<b>"+showTree(root)+"</b>"
     }
     document.getElementById("but(").addEventListener('click',(e) =>{
         document.getElementById("input1").value += "("
@@ -81,7 +78,9 @@
         document.getElementById("input1").value += ")"
     }) 
     document.getElementById("butdel").addEventListener('click',(e) =>{
-        document.getElementById("input1").value[0] += " "
+        let x = document.getElementById("input1").value
+        x = x.slice(0,x.length-1)
+        document.getElementById("input1").value = x
     }) 
     document.getElementById("butcls").addEventListener('click',(e) =>{
         document.getElementById("input1").value = ""

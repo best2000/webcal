@@ -402,16 +402,6 @@ function autoTree(tokenLis) {
     }
     return root;
 }
-function addVarVal() {
-    var i = 0;
-    while (i < tokenLis.length) {
-        //if it varr
-        if (tokenLis[i].type == 6) {
-            tokenLis[i].reVal = null;
-        }
-        i = i + 1;
-    }
-}
 function evalExpTree(root) {
     //if empty tree
     if (root == null) {
@@ -467,13 +457,9 @@ function showTree(root) {
     showTreeRec(root);
     return reLis;
 }
-function autocal() {
-    var input = document.getElementById("input1");
-    var tokenLis = tokenizer(input.value);
-    var root = autoTree(tokenLis);
-    var re = evalExpTree(root);
-    re = re;
-    console.log(showTree(root));
-    console.log("---------------------------");
-    document.getElementById("dis1").value = re;
-}
+
+var a = tokenizer("!(!a*(!b))");
+var root = autoTree(a);
+console.log("__RESULT__");
+console.log(evalExpTree(root));
+console.log(showTree(root));

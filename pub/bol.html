@@ -24,11 +24,6 @@
                     ??? 
                 </div>
         </a>
-        <a class=a_deact href="index.html">
-                <div>
-                    Manual 
-                </div>
-        </a>
     </div>
     <div id="midsec">
         <div id="midsec_main">
@@ -37,54 +32,29 @@
             <input type="submit" id="calbut" class="but" value="CAL" onclick="autocal()"><br>
             <strong>Result →</strong>
             <input type="text" id="resultdis" value="" disabled="disabled">
+            <pre id="tree"></pre>
         </div>
         <div id="midsec_sup">
             <input type="submit" id="but(" class="but" value="(">
             <input type="submit" id="but)" class="but" value=")">
             <input type="submit" id="butdel" class="but" value="←">
             <input type="submit" id="butcls" class="but" value="C">
-            <input type="submit" id="but7" class="but" value="7">
-            <input type="submit" id="but8" class="but" value="8">
-            <input type="submit" id="but9" class="but" value="9">
-            <input type="submit" id="but+" class="but" value="+">
-            <input type="submit" id="but4" class="but" value="4">
-            <input type="submit" id="but5" class="but" value="5">
-            <input type="submit" id="but6" class="but" value="6">
-            <input type="submit" id="but-" class="but" value="-">
+            <input type="submit" id="but7" class="but" value="7" disabled="disabled">
+            <input type="submit" id="but8" class="but" value="8" disabled="disabled">
+            <input type="submit" id="but9" class="but" value="9" disabled="disabled">
+            <input type="submit" id="but+" class="but" value="+" disabled="disabled">
+            <input type="submit" id="but4" class="but" value="4" disabled="disabled">
+            <input type="submit" id="but5" class="but" value="5" disabled="disabled">
+            <input type="submit" id="but6" class="but" value="6" disabled="disabled">
+            <input type="submit" id="but-" class="but" value="-" disabled="disabled">
             <input type="submit" id="but1" class="but" value="1">
-            <input type="submit" id="but2" class="but" value="2">
-            <input type="submit" id="but3" class="but" value="3">
+            <input type="submit" id="but2" class="but" value="2" disabled="disabled">
+            <input type="submit" id="but3" class="but" value="3" disabled="disabled">
             <input type="submit" id="but*" class="but" value="*">
             <input type="submit" id="but0" class="but" value="0">
-            <input type="submit" id="but." class="but" value=".">
+            <input type="submit" id="but." class="but" value="." disabled="disabled">
             <input type="submit" id="but=" class="but" value="=">
-            <input type="submit" id="but/" class="but" value="/">
-        </div>
-    </div>
-    <div id="botsec">
-        <div id="inbotsec">
-            <table>
-                <tr>
-                    <th>A</th>
-                    <th>B</th> 
-                    <th>Y</th>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>80</td>
-                </tr>
-            </table>
+            <input type="submit" id="but/" class="but" value="/" disabled="disabled">
         </div>
     </div>
 </body>
@@ -99,6 +69,7 @@
     console.log(showTree(root));
     console.log("---------------------------");
     document.getElementById("resultdis").value = re;
+    document.getElementById("tree").innerHTML = "<b>"+showTree(root)+"</b>"
     }
     document.getElementById("but(").addEventListener('click',(e) =>{
         document.getElementById("input1").value += "("
@@ -107,7 +78,9 @@
         document.getElementById("input1").value += ")"
     }) 
     document.getElementById("butdel").addEventListener('click',(e) =>{
-        document.getElementById("input1").value[0] += " "
+        let x = document.getElementById("input1").value
+        x = x.slice(0,x.length-1)
+        document.getElementById("input1").value = x
     }) 
     document.getElementById("butcls").addEventListener('click',(e) =>{
         document.getElementById("input1").value = ""
